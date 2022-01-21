@@ -3,7 +3,6 @@ import ReactDOM from "react-dom";
 import "./index.css";
 
 function Task(props) {
-//console.log (props);
 
 	return (
 		<li className="tasks-item"> {props.taskName} </li>
@@ -11,13 +10,21 @@ function Task(props) {
 }
 
 function TasksList() {
-	return (				
-		<ul>
-					<Task taskName="Follow Education.ph on Facebook" />
-					<Task taskName="Follow AWS Siklab Pilipinas on Facebook"/>
-					<Task taskName="Follow Zuitt Coding Bootcamp on Facebook"/>
-		</ul>
 
+	const taskItemList = ["Follow Education.ph on Facebook", 
+	"Follow AWS Siklab Pilipinas on Facebook",
+	"Follow Zuitt Coding Bootcamp on Facebook",
+	];
+
+	return (
+	<div>
+		<input className="task-input" />				
+		<ul>
+			{taskItemList.map((task, index) => {
+				return <Task key={index} taskName={task} />
+			})}
+		</ul>
+	</div>
 		);
 }
 
